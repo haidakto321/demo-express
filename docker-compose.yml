@@ -1,0 +1,16 @@
+version: '3'
+services:
+  db:
+    image: postgres:10.11
+    container_name: demo-express
+    restart: always
+    environment:
+      POSTGRES_DB: demo-express
+      POSTGRES_USER: ksh
+      POSTGRES_PASSWORD: kieusonhai
+      APP_DB_NAME: demo-express
+      TZ: "Asia/Ho_Chi_minh"
+    volumes:
+      - ./db:/docker-entrypoint-initdb.d/
+    ports:
+      - "5432:5432"
